@@ -16,6 +16,10 @@ inputs:
   app_key:
     description: 'Enov8 app-key'
     required: true
+  api:
+    description: 'Full API URL (from secret)'
+    required: true
+
 runs:
   using: 'node16'
   main: 'dist/index.js'
