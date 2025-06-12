@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Send version info to Enov8
-        uses: hpashok24/enov8-send-instance@v1
+        uses: hpashok24/enov8-send-instance@v1.0.1
         with:
            version: "17.1999"
            system: "GDW"
