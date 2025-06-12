@@ -19,7 +19,7 @@ async function run() {
           'user-id': userId,
           'app-id': appId,
           'app-key': appKey,
-          'Content-Type': 'text/plain'
+          'Content-Type': 'application/json'
         }
       }
     );
