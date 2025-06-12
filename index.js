@@ -17,7 +17,7 @@ async function run() {
 
     const response = await axios.put(api, payload, {
       headers: {
-        'user-id': userId,
+        'user-id': appId,
         'app-id': appId,
         'app-key': appKey,
         'Content-Type': 'application/json'
