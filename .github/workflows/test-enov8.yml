@@ -10,7 +10,7 @@ jobs:
       - name: Send version info to Enov8
         uses: hpashok24/enov8-send-instance@v1
         with:
-           version: "17.14"
+           version: "17.1999"
            system: "GDW"
            environment: "DEV"
            app_id: ${{ secrets.ENOV8_APP_ID }}
