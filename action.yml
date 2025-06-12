@@ -4,11 +4,11 @@ inputs:
   version:
     description: 'Version to be sent'
     required: true
-  resource_name:
-    description: 'Resource name (e.g., GDW (DEV))'
+  system:
+    description: 'System name (e.g., GDW (DEV))'
     required: true
-  user_id:
-    description: 'Enov8 user-id'
+  environment:
+    description: 'Environment name (e.g., DEV)'
     required: true
   app_id:
     description: 'Enov8 app-id'
