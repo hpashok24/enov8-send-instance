@@ -11,7 +11,7 @@ jobs:
         uses: hpashok24/enov8-send-instance@v1
         with:
           system: "GDW (DEV)"
-          environment: "DEV"
+          environment: "DEV Env"
           version: "17.19"
           app_id: ${{ secrets.ENOV8_APP_ID }}
           app_key: ${{ secrets.ENOV8_APP_KEY }}
