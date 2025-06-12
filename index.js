@@ -9,7 +9,7 @@ async function run() {
     const appId = core.getInput('app_id');
     const appKey = core.getInput('app_key');
     const api_url = core.getInput('enov8_url');  // Now pulled from secrets if defined in workflow
-     api_url=api_url+"/api/environmentinstance";
+    api_url=api_url+"/api/environmentinstance";
     
     const payload = {
       "System": system,
