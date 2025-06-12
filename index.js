@@ -4,18 +4,21 @@ const axios = require('axios');
 async function run() {
   try {
     const version = core.getInput('version');
-    const resourceName = core.getInput('resource_name');
+    const system = core.getInput('system');
+    const enivronment = core.getInput('environment');
     const userId = core.getInput('user_id');
     const appId = core.getInput('app_id');
     const appKey = core.getInput('app_key');
-    const api = core.getInput('api');  // Now pulled from secrets if defined in workflow
-
+    const api_url = core.getInput('enov8_url');  // Now pulled from secrets if defined in workflow
+     api_url=api_url+"/api/environmentinstance";
+    
     const payload = {
-      Version: version,
-      "Resource Name": resourceName
+      "System": system,
+      "Environment":environment,
+      "Version":version
     };
 
-    const response = await axios.put(api, payload, {
+    const response = await axios.put(api_url, payload, {
       headers: {
         'user-id': appId,
         'app-id': appId,
