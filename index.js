@@ -6,7 +6,6 @@ async function run() {
     const version = core.getInput('version');
     const system = core.getInput('system');
     const enivronment = core.getInput('environment');
-    const userId = core.getInput('user_id');
     const appId = core.getInput('app_id');
     const appKey = core.getInput('app_key');
     const api_url = core.getInput('enov8_url');  // Now pulled from secrets if defined in workflow
