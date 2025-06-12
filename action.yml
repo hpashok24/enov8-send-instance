@@ -16,7 +16,7 @@ inputs:
   app_key:
     description: 'Enov8 app-key'
     required: true
-  api:
+  enov8_url:
     description: 'Full API URL (from secret)'
     required: true
 
