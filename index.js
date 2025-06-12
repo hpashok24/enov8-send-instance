@@ -9,7 +9,10 @@ async function run() {
     const appId = core.getInput('app_id');
     const appKey = core.getInput('app_key');
 
-    const payload = `{\r\n "Version":"${version}",\r\n "Resource Name": "${resourceName}"\r\n}`;
+    const payload = {
+      Version: version,
+      "Resource Name": resourceName
+    };
 
     const response = await axios.put(
       'https://dashboard.enov8.com/ecosystem/api/SystemInstance',
@@ -27,7 +30,18 @@ async function run() {
     core.info(`✅ Enov8 API responded: ${response.status}`);
     core.info(`Response Body: ${JSON.stringify(response.data)}`);
   } catch (error) {
-    core.setFailed(`❌ Error: ${error.message}`);
+    if (error.response) {
+      // The server responded with a status outside 2xx
+      core.setFailed(`❌ API Error: ${error.response.status} ${error.response.statusText}`);
+      core.error(`Response body: ${JSON.stringify(error.response.data)}`);
+    } else if (error.request) {
+      // No response received
+      core.setFailed(`❌ No response from Enov8 API.`);
+      core.error(error.request);
+    } else {
+      // Other error
+      core.setFailed(`❌ Request setup error: ${error.message}`);
+    }
   }
 }
 
