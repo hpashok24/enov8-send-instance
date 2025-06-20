@@ -1,18 +1,20 @@
-name: Test Enov8 Action
+name: Send Enov8 Update (Environment Scoped)
 
 on:
   workflow_dispatch:
 
 jobs:
-  test-enov8:
+  send-update:
     runs-on: ubuntu-latest
+    environment: production   # 🗝️ This enables the secrets
     steps:
-      - name: Send version info to Enov8
-        uses: hpashok24/enov8-send-instance@v1.0.1
+      - name: Use Enov8 Secure Action
+        uses: hpashok24/enov8-send-environment-info-secure@v1
+        env:
+          ENOV8_APP_ID: ${{ secrets.ENOV8_APP_ID }}
+          ENOV8_APP_KEY: ${{ secrets.ENOV8_APP_KEY }}
+          ENOV8_BASE_URL: ${{ secrets.ENOV8_BASE_URL }}
         with:
-           version: "17.1999"
-           system: "GDW"
-           environment: "DEV"
-           app_id: ${{ secrets.ENOV8_APP_ID }}
-           app_key: ${{ secrets.ENOV8_APP_KEY }}
-           enov8_url: ${{ secrets.ENOV8_API_URL }}
+          version: "18"
+          system: "GDW"
+          environment: "Dev"
